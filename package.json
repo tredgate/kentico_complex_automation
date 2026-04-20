@@ -1,0 +1,40 @@
+{
+  "name": "kentico_complex_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:spaghetti": "npx playwright test tests/spaghetti/",
+    "test:standard": "npx playwright test tests/standard-pom/",
+    "test:advanced": "npx playwright test tests/advanced/",
+    "test:en": "cross-env TEST_LANG=en npx playwright test tests/advanced/",
+    "test:cs": "cross-env TEST_LANG=cs npx playwright test tests/advanced/",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tredgate/kentico_complex_automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tredgate/kentico_complex_automation/issues"
+  },
+  "homepage": "https://github.com/tredgate/kentico_complex_automation#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.6.1"
+  },
+  "dependencies": {
+    "typescript": "^6.0.3"
+  }
+}

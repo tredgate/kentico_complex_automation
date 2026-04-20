@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2025",
+    "module": "node20",
+    "types": ["node", "playwright"],
+    "moduleResolution": "node16",
+    "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "tests"],
+  "exclude": [
+    "node_modules",
+    "docs",
+    "dist",
+    "test-results",
+    "playwright-report",
+    "blob-report",
+    "playwright/.cache"
+  ]
+}

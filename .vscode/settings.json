@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^mkdir -p /Users/petrfifka/GitProjects/kentico_complex_automation/agents-reports/explorer$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}
