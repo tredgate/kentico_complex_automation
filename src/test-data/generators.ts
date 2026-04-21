@@ -68,23 +68,23 @@ export class Generators {
   }
 
   async generateProject(project?: Partial<Project>): Promise<Project> {
-    const uniqueToken = faker.string.alphanumeric(6).toUpperCase();
-    // Placeholder only for create-project form compatibility. Persisted IDs are assigned by the app.
-    const createWizardPlaceholderOptionValue = "create-wizard-placeholder";
+    const uuid = faker.string.uuid();
+    const code = `PRJ${faker.number.int({ max: 10_000_000 })}`;
+    const testData = new TestData();
+
     const defaultEnvironment: ProjectEnvironment = {
       label: "Dev (dev)",
-      optionValue: createWizardPlaceholderOptionValue,
       type: "dev",
       url: `https://dev.${faker.internet.domainWord()}.example.com`,
     };
 
     return {
-      name: `Project ${uniqueToken}`,
-      code: `PRJ${uniqueToken}`,
+      name: `Project ${uuid}`,
+      code,
       description: "Default project description.",
       status: "planning",
-      qaLead: "2",
-      teamMembers: ["1"],
+      qaLead: testData.teamMembers.testLeads.laura,
+      teamMembers: [testData.teamMembers.testers.tom],
       environments: {
         dev: defaultEnvironment,
       },
