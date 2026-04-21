@@ -1,5 +1,5 @@
-import { test } from "../src/fixtures/qa_hub_context.ts";
-import { Defect } from "../src/test-data/types.ts";
+import { test } from "../../src/fixtures/qa_hub_context.ts";
+import { Defect } from "../../src/test-data/types.ts";
 
 test.describe("E2E Example Structure", () => {
   let defect: Defect;
