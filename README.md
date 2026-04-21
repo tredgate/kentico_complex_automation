@@ -2,17 +2,6 @@
 
 Playwright test automation for the **Tredgate QA Hub** — a React SPA used as a training System Under Test. This repository demonstrates three progressive approaches to test automation, from intentionally bad to production-grade.
 
-## TO-DO README
-
-- [ ] Add Page Objects structure
-- [ ] Add Custom Fixture "qaHubPage"
-- [ ] Add Custom Snippets for test, page object, component, procedure, i18n
-- [ ] Add Test Data
-- [ ] Add i18n
-- [ ] Add AI overview
-- [ ] Add BasePage and MainApp objects
-- [ ] Add overview of: Bad test, Simple POM test, Advanced test
-
 ## Three Approaches
 
 | Approach         | Folder                | What it demonstrates                                                       |
@@ -30,7 +19,22 @@ cp .env.example .env
 npm test
 ```
 
-> The Tredgate QA Hub app must be running at `http://localhost:5173` (separate repo).
+> The Tredgate QA Hub app must be running at `http://localhost:5173` from a separate repository.
+
+### App Repository (SUT)
+
+Repository: [https://github.com/tredgate/tredgate_training_web_app](https://github.com/tredgate/tredgate_training_web_app)
+
+If you want to run these tests locally, clone and start the app first. See the app's README for instructions, but generally it involves:
+
+```bash
+git clone https://github.com/tredgate/tredgate_training_web_app.git
+cd tredgate_training_web_app
+npm install
+npm run dev
+```
+
+Then return to this automation repository and run the Playwright tests.
 
 ## Scripts
 
