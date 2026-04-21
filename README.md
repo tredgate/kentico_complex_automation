@@ -12,11 +12,15 @@ Playwright test automation for the **Tredgate QA Hub** — a React SPA used as a
 
 ## Quick Start
 
+After cloning this repository, create a `.env` file based on the example.
+
+Install dependencies and run tests in Playwright UI with:
+
 ```bash
 npm install
 npx playwright install
 cp .env.example .env
-npm test
+npm run test:ui
 ```
 
 > The Tredgate QA Hub app must be running at `http://localhost:5173` from a separate repository.
