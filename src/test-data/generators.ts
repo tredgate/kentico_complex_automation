@@ -1,5 +1,11 @@
 import { TestData } from "./qa_hub_data.ts";
-import { Defect, ProjectEnvironment, TestCase, TestPlan } from "./types.ts";
+import {
+  Defect,
+  Project,
+  ProjectEnvironment,
+  TestCase,
+  TestPlan,
+} from "./types.ts";
 import { faker } from "@faker-js/faker";
 
 export class Generators {
@@ -10,7 +16,10 @@ export class Generators {
     return {
       title: `Defect ${faker.string.uuid()}`,
       description: "Default defect description.",
-      severity: "minor",
+      severity: {
+        value: "minor",
+        label: "Minor",
+      },
       priority: "P3",
       project: this.testData.projects.phoenix,
       environment: this.testData.projects.phoenix.environments.dev,
@@ -55,6 +64,31 @@ export class Generators {
         },
       ],
       ...testCase,
+    };
+  }
+
+  async generateProject(project?: Partial<Project>): Promise<Project> {
+    const uniqueToken = faker.string.alphanumeric(6).toUpperCase();
+    // Placeholder only for create-project form compatibility. Persisted IDs are assigned by the app.
+    const createWizardPlaceholderOptionValue = "create-wizard-placeholder";
+    const defaultEnvironment: ProjectEnvironment = {
+      label: "Dev (dev)",
+      optionValue: createWizardPlaceholderOptionValue,
+      type: "dev",
+      url: `https://dev.${faker.internet.domainWord()}.example.com`,
+    };
+
+    return {
+      name: `Project ${uniqueToken}`,
+      code: `PRJ${uniqueToken}`,
+      description: "Default project description.",
+      status: "planning",
+      qaLead: "2",
+      teamMembers: ["1"],
+      environments: {
+        dev: defaultEnvironment,
+      },
+      ...project,
     };
   }
 }

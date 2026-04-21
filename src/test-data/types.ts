@@ -2,7 +2,10 @@ export type Defect = {
   title: string;
   project: Project;
   description: string;
-  severity: DefectSeverity;
+  severity: {
+    value: DefectSeverityValue;
+    label: DefectSeverityLabel;
+  };
   priority: DefectPriority;
   environment: ProjectEnvironment;
   stepsToReproduce: string;
@@ -43,7 +46,9 @@ export type ProjectEnvironment = {
 
 export type EnvironmentType = "dev" | "staging" | "production";
 
-export type DefectSeverity = "trivial" | "minor" | "major" | "critical";
+export type DefectSeverityValue = "trivial" | "minor" | "major" | "critical";
+
+export type DefectSeverityLabel = "Trivial" | "Minor" | "Major" | "Critical";
 
 export type DefectPriority = "P1" | "P2" | "P3" | "P4";
 
