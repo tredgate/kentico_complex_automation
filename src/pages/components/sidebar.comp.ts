@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { Component } from "./component.ts";
-
+import type { DefectsPage } from "../defects/defects.page.ts";
 export class SidebarComponent<TParent> extends Component<TParent> {
   // Sidebar
   protected readonly nav: Locator;
@@ -41,7 +41,7 @@ export class SidebarComponent<TParent> extends Component<TParent> {
     return new ProjectsPage(this.page);
   }
 
-  async clickDefects() {
+  async clickDefects(): Promise<DefectsPage> {
     const { DefectsPage } = require("../defects/defects.page.ts");
     await this.page.getByTestId("sidebar-link-defects").click();
     return new DefectsPage(this.page);

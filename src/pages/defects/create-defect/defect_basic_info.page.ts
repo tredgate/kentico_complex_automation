@@ -5,7 +5,7 @@ import { DefectsPage } from "../defects.page.ts";
 import {
   Defect,
   DefectPriority,
-  DefectSeverity as DefectSeverity,
+  DefectSeverityValue,
 } from "../../../test-data/types.ts";
 import { CreateDefectDetailsPage } from "./create_defect_details.page.ts";
 
@@ -42,9 +42,9 @@ export class DefectBasicInfoPage extends BasePage {
     return this;
   }
 
-  async selectSeverity(severity: DefectSeverity) {
+  async selectSeverity(severityValue: DefectSeverityValue) {
     await expect(this.severitySelect).toBeVisible(); // * Playwright is out-racing here, without this wait the select action sometimes fails on: `Error: locator.selectOption: Error: Element is not a <select> element`
-    await this.severitySelect.selectOption(severity);
+    await this.severitySelect.selectOption(severityValue);
     return this;
   }
 
@@ -67,7 +67,7 @@ export class DefectBasicInfoPage extends BasePage {
   async fillDefectBasicInfo(defectData: Defect) {
     await this.fillTitle(defectData.title);
     await this.selectProject(defectData.project.name);
-    await this.selectSeverity(defectData.severity);
+    await this.selectSeverity(defectData.severity.value);
     await this.selectPriority(defectData.priority);
     return this;
   }

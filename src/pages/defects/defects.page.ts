@@ -7,11 +7,14 @@ import { DefectBasicInfoPage } from "./create-defect/defect_basic_info.page.ts";
 export class DefectsPage extends BasePage {
   private readonly createDefectButton: Locator;
   private readonly rowTrSelector = '[data-testid="defect-list-row-{{index}}"]';
-  private readonly idTdSelector = "td[defect-list-cell-id-{{index}}]";
-  private readonly titleTdSelector = "td[defect-list-cell-title-{{index}}]";
-  private readonly projectTdSelector = "td[defect-list-cell-project-{{index}}]";
+  private readonly idTdSelector =
+    "td[data-testid='defect-list-cell-id-{{index}}']";
+  private readonly titleTdSelector =
+    "td[data-testid='defect-list-cell-title-{{index}}']";
+  private readonly projectTdSelector =
+    "td[data-testid='defect-list-cell-projectId-{{index}}']"; // defect-list-cell-projectId-0
   private readonly severityTdSelector =
-    "td[defect-list-cell-severity-{{index}}]";
+    "td[data-testid='defect-list-cell-severity-{{index}}']";
   dataTableComponent: DataTableComponent<this>;
 
   constructor(page: Page) {
@@ -47,8 +50,8 @@ export class DefectsPage extends BasePage {
     await expect(projectTd, "Defect project has correct value").toHaveText(
       defectContent.project.name,
     );
-    await expect(severityTd, "Defect severity has correct value").toHaveText(
-      defectContent.severity,
+    await expect(severityTd, "Defect severity has correct value").toContainText(
+      defectContent.severity.label,
     );
     return this;
   }

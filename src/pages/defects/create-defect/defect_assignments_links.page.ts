@@ -2,7 +2,6 @@ import { expect, Locator, Page } from "@playwright/test";
 import { BasePage } from "../../base_page.page.ts";
 import { WizardComponent } from "../../components/wizard.comp.ts";
 import { DefectsPage } from "../defects.page.ts";
-import { DefectSeverity as DefectSeverity } from "../../../test-data/types.ts";
 import { CreateDefectDetailsPage } from "./create_defect_details.page.ts";
 import { DefectReviewPage } from "./defect_review.page.ts";
 

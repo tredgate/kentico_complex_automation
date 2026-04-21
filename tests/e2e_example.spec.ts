@@ -1,5 +1,4 @@
 import { test } from "../src/fixtures/qa_hub_context.ts";
-import { DefectsPage } from "../src/pages/defects/defects.page.ts";
 import { Defect } from "../src/test-data/types.ts";
 
 test.describe("E2E Example Structure", () => {
@@ -11,11 +10,12 @@ test.describe("E2E Example Structure", () => {
       "LEAD_USERNAME",
       "LEAD_PASSWORD",
     );
+    const project = qaHub.testData.projects.phoenix;
     const testPlan = await qaHub.generators.generateTestPlan({
-      project: qaHub.testData.projects.phoenix,
+      project,
     });
     defect = await qaHub.generators.generateDefect({
-      project: qaHub.testData.projects.phoenix,
+      project,
     });
 
     await qaHub
@@ -32,7 +32,7 @@ test.describe("E2E Example Structure", () => {
     // * Act
     await qaHub
       .onSidebar()
-      .then((sidebar) => sidebar.clickDefects() as Promise<DefectsPage>)
+      .then((sidebar) => sidebar.clickDefects())
       .then((defects) => defects.clickCreateDefect())
       .then((defectBasicInfo) => defectBasicInfo.fillDefectBasicInfo(defect))
       .then((defectBasicInfo) => defectBasicInfo.clickNext())

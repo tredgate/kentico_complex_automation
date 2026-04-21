@@ -2,12 +2,8 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../../base_page.page.ts";
 import { WizardComponent } from "../../components/wizard.comp.ts";
 import { DefectsPage } from "../defects.page.ts";
-import {
-  Defect,
-  DefectSeverity as DefectSeverity,
-} from "../../../test-data/types.ts";
+import { Defect } from "../../../test-data/types.ts";
 import { DefectBasicInfoPage } from "./defect_basic_info.page.ts";
-import { DefectReviewPage } from "./defect_review.page.ts";
 import { DefectAssignmentsLinksPage } from "./defect_assignments_links.page.ts";
 
 export class CreateDefectDetailsPage extends BasePage {
