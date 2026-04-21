@@ -4,7 +4,7 @@ export class TestData {
   url = "http://localhost:5173";
   teamMembers = {
     testLeads: {
-      laura: "Laura Smith",
+      laura: "Laura Lead",
     },
     testers: {
       tom: "Tom Tester",
