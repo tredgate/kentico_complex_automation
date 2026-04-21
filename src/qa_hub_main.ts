@@ -18,4 +18,11 @@ export class TredgateQAHubMain extends BasePage {
     await this.page.goto(this.testData.url);
     return new LoginPage(this.page);
   }
+
+  // Generics return Page Object for quicker access to page methods
+  async onPage<T extends BasePage>(
+    pageObject: new (page: Page) => T,
+  ): Promise<T> {
+    return new pageObject(this.page);
+  }
 }
