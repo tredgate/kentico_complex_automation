@@ -29,7 +29,28 @@
   "qpt": {
     "scope": "typescript",
     "prefix": "qpt",
-    "body": "test(\"$1\", async ({ qaHubPage }) => {});",
+    "body": "test(\"$1\", async ({ qaHub }) => {\n\t$2\n});",
     "description": "Insert QA Hub Playwright test block",
+  },
+
+  "qpbfe": {
+    "scope": "typescript",
+    "prefix": "qpbfe",
+    "description": "Insert QA Hub Playwright Before Each",
+    "body": "beforeEach(async ({ qaHub }) => {\n\t$1\n});",
+  },
+
+  "qpdsbfet": {
+    "scope": "typescript",
+    "prefix": "qpdsbfet",
+    "description": "Insert QA Hub Playwright Describe Block with Before Each and Test",
+    "body": "test.describe(\"$1\", () => {\n\ttest.beforeEach(async ({ qaHub }) => {\n\t\t$2\n\t});\n\n\ttest(\"$3\", async ({ qaHub }) => {\n\t\t$4\n\t});\n});",
+  },
+
+  "fakerImport": {
+    "scope": "typescript",
+    "prefix": "fakerImport",
+    "description": "Import Faker library",
+    "body": "import { faker } from '@faker-js/faker';",
   },
 }
