@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../base_page.page.ts";
-import { CreatePlanDetailsPage } from "./new-test-plan-wizzard/plan_details.page.ts";
+import { CreatePlanDetailsPage } from "./new-test-plan-wizard/plan_details.page.ts";
 
 export class TestPlansPage extends BasePage {
   private readonly createTestPlanButton: Locator;
@@ -12,8 +12,8 @@ export class TestPlansPage extends BasePage {
     );
   }
 
-  clickCreateTestPlan() {
-    this.createTestPlanButton.click();
+  async clickCreateTestPlan() {
+    await this.createTestPlanButton.click();
     return new CreatePlanDetailsPage(this.page);
   }
 }
