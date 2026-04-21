@@ -39,8 +39,8 @@ export type TestCase = {
 
 export type ProjectEnvironment = {
   label: string;
-  optionValue: string;
   type: EnvironmentType;
+  optionValue?: string;
   url?: string;
 };
 
